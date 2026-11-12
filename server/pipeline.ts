@@ -733,8 +733,7 @@ async function execute(claim: string, emit: Emit): Promise<void> {
 
 function failure(err: unknown, fallback: string): PipelineError {
   if (err instanceof PipelineError) return err;
-  if (err instanceof LlmError)
-    return new PipelineError(`${fallback} (${err.message})`, "AI_FAILED");
+  if (err instanceof LlmError) return new PipelineError(err.message, "AI_FAILED");
   if (err instanceof SearchError) return new PipelineError(fallback, "SEARCH_FAILED");
   return new PipelineError(fallback, "PIPELINE_FAILED");
 }

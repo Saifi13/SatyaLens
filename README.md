@@ -45,6 +45,13 @@ Build command `npm install --include=dev && npm run build`, start command
 `npm start`. The API sends permissive CORS headers, so a separately hosted
 frontend can call it.
 
+Groq's free tier caps `openai/gpt-oss-120b` at 200k tokens per day
+(and 8k per minute). Each verification spends roughly 4–6k tokens, so a heavy
+testing day can exhaust the daily budget; the API then reports that plainly.
+The service waits out per-minute limits (honoring the provider's retry hint)
+and reports the daily limit without burning retries. For sustained use, add
+billing to Groq or point `AI_MODEL` at a model with a separate quota.
+
 **Frontend** — set `VITE_API_BASE_URL` to the API origin at build time
 (e.g. `https://satyalens-r9kj.onrender.com`). Leave it empty when the frontend
 is served from the same origin as the API.
