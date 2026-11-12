@@ -146,7 +146,7 @@ export default function ResearchProcess({
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="min-w-0">
             <p className="eyebrow">Investigation desk</p>
-            <h1 className="mt-3 max-w-4xl font-serif text-[22px] leading-snug text-ink-900 sm:text-[28px] lg:text-[32px]">
+            <h1 className="mt-3 max-w-4xl break-words font-serif text-[22px] leading-snug text-ink-900 sm:text-[28px] lg:text-[32px]">
               &ldquo;{claim}&rdquo;
             </h1>
           </div>
@@ -374,11 +374,11 @@ function SourceCardLive({
             rel="noreferrer"
             className="mt-1 inline-flex max-w-full items-start gap-1 text-[15px] font-medium leading-snug text-ink-900 hover:text-accent-700"
           >
-            <span className="line-clamp-2">{source.title}</span>
+            <span className="line-clamp-2 break-words">{source.title}</span>
             <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 opacity-50" />
           </a>
           {source.snippet && (
-            <p className="mt-2 line-clamp-3 text-[13px] leading-6 text-ink-500">
+            <p className="mt-2 line-clamp-3 break-words text-[13px] leading-6 text-ink-500">
               {source.accessStatus === "snippet" ? (
                 <span className="mr-1 font-medium text-verdict-amber">
                   Search snippet:

@@ -110,7 +110,7 @@ export default function ReportView({
             Verification complete
           </span>
         </div>
-        <h1 className="mt-6 font-serif text-[30px] leading-[1.2] text-ink-900 sm:text-[38px]">
+        <h1 className="mt-6 break-words font-serif text-[30px] leading-[1.2] text-ink-900 sm:text-[38px]">
           &ldquo;{report.claim}&rdquo;
         </h1>
         <p className="mt-4 text-[13px] text-ink-400">
@@ -138,7 +138,7 @@ export default function ReportView({
         className="card mx-auto mt-12 overflow-hidden"
       >
         <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.55fr_1fr]">
-          <div>
+          <div className="min-w-0">
             <SectionTitle icon={ScrollText}>Verdict</SectionTitle>
             <div className="mt-4 flex flex-wrap items-center gap-4">
               <VerdictBadge verdict={report.verdict} size="lg" />
@@ -146,7 +146,7 @@ export default function ReportView({
                 based on {report.sources.length} retrieved sources
               </span>
             </div>
-            <p className="mt-5 text-[16px] leading-7 text-ink-700">
+            <p className="mt-5 break-words text-[16px] leading-7 text-ink-700">
               {report.summary}
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-ink-100 pt-5 text-[13px] text-ink-500">
@@ -164,7 +164,7 @@ export default function ReportView({
               </span>
             </div>
           </div>
-          <div className="rounded-xl border border-ink-100 bg-paper-dim/60 p-5 sm:p-6">
+          <div className="min-w-0 rounded-xl border border-ink-100 bg-paper-dim/60 p-5 sm:p-6">
             <ConfidenceMeter confidence={report.confidence} note={report.confidenceNote} />
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function ReportView({
 
       {/* ---------- Evidence workspace ---------- */}
       <div className="mt-12 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start">
-        <div className="space-y-12">
+        <div className="min-w-0 space-y-12">
           {groups.map((g) => (
             <section key={g.key}>
               <div className="flex items-center justify-between">
@@ -208,7 +208,7 @@ export default function ReportView({
 
           <section>
             <SectionTitle icon={Link2}>All retrieved sources</SectionTitle>
-            <p className="mt-2 text-[13px] leading-6 text-ink-400">
+            <p className="mt-2 break-words text-[13px] leading-6 text-ink-400">
               Every page consulted during research — including sources that
               turned out not to be relevant. Open them to verify independently.
             </p>
@@ -221,10 +221,10 @@ export default function ReportView({
         </div>
 
         {/* ---------- Analysis column ---------- */}
-        <div className="space-y-8 lg:sticky lg:top-20">
+        <div className="min-w-0 space-y-8 lg:sticky lg:top-20">
           <section className="card p-5 sm:p-6">
             <SectionTitle icon={ScrollText}>Why this verdict</SectionTitle>
-            <p className="mt-4 text-[14px] leading-7 text-ink-600">
+            <p className="mt-4 break-words text-[14px] leading-7 text-ink-600">
               {report.assessment.rationale}
             </p>
           </section>
@@ -277,7 +277,7 @@ export default function ReportView({
 
           <section className="card p-5 sm:p-6">
             <SectionTitle icon={FileQuestion}>Transparency notes</SectionTitle>
-            <p className="mt-3 text-[13px] leading-6 text-ink-500">
+            <p className="mt-3 break-words text-[13px] leading-6 text-ink-500">
               {report.limitations}
             </p>
             {report.searchQueries.length > 0 && (
@@ -289,7 +289,7 @@ export default function ReportView({
                   {report.searchQueries.map((q, i) => (
                     <span
                       key={i}
-                      className="rounded-full border border-ink-100 bg-paper-dim px-2.5 py-1 text-[12px] text-ink-500"
+                      className="max-w-full break-words rounded-full border border-ink-100 bg-paper-dim px-2.5 py-1 text-[12px] text-ink-500"
                     >
                       {q}
                     </span>
@@ -299,7 +299,7 @@ export default function ReportView({
             )}
           </section>
 
-          <p className="text-[12px] leading-6 text-ink-400">
+          <p className="break-words text-[12px] leading-6 text-ink-400">
             Excerpts are quoted from material retrieved during this run. AI
             interpretation is confined to classification and the summary above
             — open the sources and judge for yourself.
@@ -331,7 +331,7 @@ function AssessList({
       </div>
       <ul className="mt-2 space-y-2">
         {items.map((t, i) => (
-          <li key={i} className="flex gap-2.5 text-ink-600">
+          <li key={i} className="flex gap-2.5 break-words text-ink-600">
             <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink-300" />
             {t}
           </li>

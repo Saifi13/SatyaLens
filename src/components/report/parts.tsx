@@ -166,18 +166,18 @@ export function EvidenceCard({
           rel="noopener noreferrer"
           className="group block"
         >
-          <h4 className="text-[14px] font-semibold leading-6 text-ink-800 group-hover:text-accent-700">
+          <h4 className="break-words text-[14px] font-semibold leading-6 text-ink-800 group-hover:text-accent-700">
             {source.title}
             <span className="text-ink-300"> ↗</span>
           </h4>
         </a>
-        <div className="mt-3 flex gap-2.5">
+        <div className="mt-3 flex min-w-0 gap-2.5">
           <Quote className="h-4 w-4 shrink-0 text-ink-300" />
-          <p className="border-l-2 border-ink-100 pl-3 text-[14px] italic leading-6 text-ink-600">
+          <p className="min-w-0 break-words border-l-2 border-ink-100 pl-3 text-[14px] italic leading-6 text-ink-600">
             {item.excerpt}
           </p>
         </div>
-        <p className="mt-3 text-[13px] leading-6 text-ink-500">
+        <p className="mt-3 break-words text-[13px] leading-6 text-ink-500">
           <span className="font-semibold text-ink-600">Why it matters:</span>{" "}
           {item.why}
         </p>
@@ -233,7 +233,7 @@ export function SubClaimDisclosure({
           {index}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block text-[14px] font-medium leading-6 text-ink-800">
+          <span className="block break-words text-[14px] font-medium leading-6 text-ink-800">
             {text}
           </span>
           {!open && <span className="mt-0.5 block truncate text-[13px] text-ink-400">{explanation}</span>}
@@ -250,7 +250,7 @@ export function SubClaimDisclosure({
         className="overflow-hidden"
       >
         <div className="border-t border-ink-100 px-4 py-4 sm:px-5">
-          <p className="text-[14px] leading-6 text-ink-600">{explanation}</p>
+          <p className="break-words text-[14px] leading-6 text-ink-600">{explanation}</p>
           {children && <div className="mt-4 space-y-3">{children}</div>}
         </div>
       </motion.div>
