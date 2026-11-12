@@ -16,8 +16,14 @@ export interface HealthInfo {
   aiModel: string | null;
 }
 
+const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "");
+
+function apiUrl(path: string): string {
+  return `${API_BASE}${path}`;
+}
+
 export async function fetchHealth(): Promise<HealthInfo> {
-  const res = await fetch("/api/health");
+  const res = await fetch(apiUrl("/api/health"));
   if (!res.ok) throw new ApiError("Verification service is unreachable.", "OFFLINE");
   return res.json();
 }
@@ -29,7 +35,7 @@ export async function runVerification(
 ): Promise<void> {
   let res: Response;
   try {
-    res = await fetch("/api/verify", {
+    res = await fetch(apiUrl("/api/verify"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ claim }),

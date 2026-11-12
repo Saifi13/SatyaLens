@@ -30,6 +30,25 @@ npm run build
 npm start   # Express serves dist/ + /api
 ```
 
+## Deploy
+
+**Backend (Render)** — set these in the service's Environment tab, not in a
+committed `.env`:
+
+```
+AI_API_KEY=…            AI_BASE_URL=https://api.groq.com/openai/v1
+AI_MODEL=openai/gpt-oss-120b
+SEARCH_PROVIDER=tavily  SEARCH_API_KEY=…
+```
+
+Build command `npm install --include=dev && npm run build`, start command
+`npm start`. The API sends permissive CORS headers, so a separately hosted
+frontend can call it.
+
+**Frontend** — set `VITE_API_BASE_URL` to the API origin at build time
+(e.g. `https://satyalens-r9kj.onrender.com`). Leave it empty when the frontend
+is served from the same origin as the API.
+
 ## Pipeline
 
 1. Understand the statement (LLM, no truth decisions)
